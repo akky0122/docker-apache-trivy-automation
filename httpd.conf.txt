@@ -1,0 +1,24 @@
+# File: httpd.conf
+
+# Example configuration for Apache web server
+
+# Set the listening port
+Listen 80
+
+# Define the server name and document root
+ServerName localhost
+DocumentRoot /var/www/html
+
+# Configure default directory index
+DirectoryIndex index.html index.php
+
+# Configure virtual hosts
+<VirtualHost *:80>
+    ServerName mywebsite.local
+    DocumentRoot /var/www/mywebsite
+    <Directory /var/www/mywebsite>
+        Options Indexes FollowSymLinks MultiViews
+        AllowOverride All
+        Require all granted
+    </Directory>
+</VirtualHost>
